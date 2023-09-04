@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_node_view().
+ */
+
+function custom_like_button_node_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity instanceof \Drupal\Core\Entity\FieldableEntityInterface) {
+    $likes = $entity->get('field_like_counts')->value;
+    $build['like_button'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'button',
+      '#value' => \Drupal::translation()->translate('Like') . ' (' . $likes . ')',
+      '#attributes' => [
+        'class' => ['like-button'],
+        'data-node-id' => $entity->id(),
+      ],
+    ];
+    $build['#attached']['library'][] = 'custom_like_button/like';
+  }
+}
+

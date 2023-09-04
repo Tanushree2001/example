@@ -1,0 +1,7 @@
+name: Custom Like
+description: Adds a like to blog posts.
+core_version_requirement: ^10 || ^9
+type: module
+package: Custom
+dependencies:
+  - node

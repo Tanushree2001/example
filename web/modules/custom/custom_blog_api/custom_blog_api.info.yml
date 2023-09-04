@@ -1,0 +1,5 @@
+name: 'Custom Blog API'
+type: module
+description: 'Exposes blogs through a custom API.'
+core_version_requirement: ^10 || ^9
+package: Custom

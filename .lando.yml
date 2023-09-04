@@ -1,0 +1,4 @@
+name: custom-drupal-set3-app
+recipe: drupal10
+config:
+  webroot: web

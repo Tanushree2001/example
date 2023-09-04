@@ -1,0 +1,8 @@
+like:
+  version: 1.x
+  js:
+    js/custom_like_button.js: {}
+  # dependencies:
+  #   - core/jquery
+  #   - core/drupal
+  #   - core/drupal/ajax

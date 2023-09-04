@@ -1,0 +1,6 @@
+custom_like_button.like:
+  path: '/custom_like_button/{node}'
+  defaults:
+    _controller: '\Drupal\custom_like_button\Controller\LikeController::like'
+  requirements:
+    _permission: 'access content'

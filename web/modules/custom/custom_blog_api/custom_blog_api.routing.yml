@@ -1,0 +1,8 @@
+custom_blog_api.list_blogs:
+  path: '/api/blogs'
+  defaults:
+    _controller: '\Drupal\custom_blog_api\Controller\BlogApiController::listBlogs'
+    _title: 'List Blogs API'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_cron().
+ */
+function custom_cleanup_cron() {
+  $current_time = new DateTime();
+  $current_hour = $current_time->format('H');
+  if ($current_hour != '05') {
+    return;
+  }
+  $one_year_ago = strtotime('-1 year');
+  $guest_blogger_role = 'guest_blogger';
+  $guest_blogger_user = \Drupal::entityTypeManager()->getStorage('user')->loadByProperties(['roles' => [$guest_blogger_role]]);
+
+  $query = \Drupal::database()->select('node_field_data','n')
+    ->fields('n', ['nid'])
+    ->condition('n.created',$one_year_ago, '<')
+    ->condition('n.type','blogs')
+    ->condition('n.uid', array_keys($guest_blogger_user), 'IN')
+    ->execute();
+
+  foreach ($query as $row) {
+    $node = \Drupal\node\Entity\Node::load($row->nid);
+    if($node) {
+      $node->delete();
+    }
+  }
+}

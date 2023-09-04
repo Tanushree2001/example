@@ -1,0 +1,5 @@
+name: Custom Cleanup Blog
+description: Deletes blog created by guest blogger which are 1 year older.
+core_version_requirement: ^10 || ^9
+type: module
+package: Custom

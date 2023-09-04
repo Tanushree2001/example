@@ -1,0 +1,8 @@
+custom_signin.diform:
+  path: '/signinform'
+  defaults:
+    _form: '\Drupal\custom_signin\Form\SigninForm'
+    _title: 'Become an Author'
+  requirements:
+    _permission: 'access content'
+
